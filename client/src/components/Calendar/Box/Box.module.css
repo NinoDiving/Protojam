@@ -8,6 +8,26 @@
   font-size: 2.25rem;
 
   border-radius: 10px;
+
+  perspective: 1000px;
+  z-index: 1;
+}
+
+.faceSquare {
+  background-image: url("./src/assets/images/christmasTree.jpg");
+  background-size: cover;
+  height: 14.2rem;
+  z-index: 100;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transform-origin: top;
+  transform: rotateY(0deg);
+  transition: transform 2s ease-in-out;
+  cursor: pointer;
+}
+
+.box.open .faceSquare {
+  transform: rotateX(-120deg);
 }
 
 .openBox {
