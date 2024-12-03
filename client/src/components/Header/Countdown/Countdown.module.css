@@ -1,0 +1,64 @@
+@import url(../../../variables.css);
+
+.countdownTime {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+
+  height: 2rem;
+  width: 10rem;
+
+  font-size: .5rem;
+}
+
+.countdownTime > span {
+  font-size: 1rem;
+  color: var(--light);
+  font-weight: bold;
+}
+
+.countdownStyle:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.countdownStyle:nth-child(2) {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.countdownStyle:nth-child(3) {
+  grid-area: 1 / 2 / 3 / 3;
+}
+
+.countdownStyle:nth-child(4) {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.countdownStyle:nth-child(5) {
+  grid-area: 2 / 3 / 3 / 4;
+}
+
+.countdownStyle:nth-child(6) {
+  grid-area: 1 / 4 / 3 / 5;
+}
+
+.countdownStyle:nth-child(7) {
+  grid-area: 1 / 5 / 2 / 6;
+}
+
+.countdownStyle:nth-child(8) {
+  grid-area: 2 / 5 / 3 / 6;
+}
+
+.countdownStyle:nth-child(9) {
+  grid-area: 1 / 6 / 3 / 7;
+}
+
+.countdownStyle:nth-child(10) {
+  grid-area: 1 / 7 / 2 / 8;
+}
+
+.countdownStyle:nth-child(11) {
+  grid-area: 2 / 7 / 3 / 8;
+}
