@@ -6,6 +6,9 @@ export default function Calendar() {
   const [openCases, setOpenCases] = useState<boolean[]>(
     new Array(25).fill(false),
   );
+  const [isModalOpen, setIsModalOpen] = useState<boolean[]>(
+    new Array(25).fill(false),
+  );
 
   const now = new Date();
   const today = now.getDate();
@@ -21,6 +24,12 @@ export default function Calendar() {
     }
   };
 
+  const toggleModal = (caseNumber: number) => {
+    const newModalStates = [...isModalOpen];
+    newModalStates[caseNumber] = !newModalStates[caseNumber];
+    setIsModalOpen(newModalStates);
+  };
+
   return (
     <main className={styles.adventCalendar}>
       {openCases.map((isOpen, index) => {
@@ -29,6 +38,8 @@ export default function Calendar() {
           <Box
             key={`box-${index + 1}`}
             handleClick={() => toggleBox(index)}
+            toggleModal={() => toggleModal(index)}
+            isModalOpen={isModalOpen[index]}
             content={`${index + 1}`}
           />
         );
