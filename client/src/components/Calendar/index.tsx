@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Box from "./Box";
 import styles from "./Calendar.module.css";
+import { fetchQuoteById } from "../../api/fetchQuotes";
+import type { quotesInfo } from "../../api/quotesInfo";
+import { useEffect, useState } from "react";
 
 export default function Calendar() {
   const [openCases, setOpenCases] = useState<boolean[]>(
