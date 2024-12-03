@@ -12,6 +12,7 @@
 .box {
   background-color: tomato;
   font-family: var(--numFont);
+  font-size: 2.25rem;
 
   border-radius: 10px;
 }
