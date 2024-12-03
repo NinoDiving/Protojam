@@ -1,25 +1,14 @@
+import { useState } from "react";
 import Box from "./Box";
 import styles from "./Calendar.module.css";
-import { fetchQuoteById } from "../../api/fetchQuotes";
-import type { quotesInfo } from "../../api/quotesInfo";
-import { useEffect, useState } from "react";
 
 export default function Calendar() {
-  const [quotes, setQuotes] = useState<(quotesInfo | null)[]>(Array(25).fill(null));
-  const [openCases, setOpenCases] = useState<boolean[]>(new Array(25).fill(false));
-
-  useEffect(() => {
-    const fetchQuotes = async () => {
-      const fetchedQuotes = await Promise.all(
-        Array.from({ length: 25 }, (_, index) => 
-          fetchQuoteById(index + 1).catch(() => null)
-        )
-      );
-      console.log("Citations récupérées :", fetchedQuotes);
-      setQuotes(fetchedQuotes);
-    };
-    fetchQuotes();
-  }, []);
+  const [openCases, setOpenCases] = useState<boolean[]>(
+    new Array(25).fill(false),
+  );
+  const [isModalOpen, setIsModalOpen] = useState<boolean[]>(
+    new Array(25).fill(false),
+  );
 
   const now = new Date();
   const today = now.getDate();
@@ -35,16 +24,23 @@ export default function Calendar() {
     }
   };
 
+  const toggleModal = (caseNumber: number) => {
+    const newModalStates = [...isModalOpen];
+    newModalStates[caseNumber] = !newModalStates[caseNumber];
+    setIsModalOpen(newModalStates);
+  };
+
   return (
     <main className={styles.adventCalendar}>
       {openCases.map((isOpen, index) => {
-        const quote = quotes[index];
+        console.info(isOpen);
         return (
           <Box
             key={`box-${index + 1}`}
             handleClick={() => toggleBox(index)}
-            content={isOpen && quote ? `${quote.citation}\n${quote.morale}` : `${index + 1}`}
-            isOpen={isOpen}
+            toggleModal={() => toggleModal(index)}
+            isModalOpen={isModalOpen[index]}
+            content={`${index + 1}`}
           />
         );
       })}

@@ -15,18 +15,18 @@ router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
 
 router.get("/api/quotes", (req, res) => {
-    res.json(quotes);
-  });
+  res.json(quotes);
+});
 router.get("/api/quotes/:id", (req, res) => {
-    const id = Number.parseInt(req.params.id, 10);
-    const quote = quotes.find((q) => q.id === id);
-  
-    if (!quote) {
-      res.status(404).send("Quote not found");
-      return;
-    }
-    res.json(quote);
-  });
+  const id = Number.parseInt(req.params.id, 10);
+  const quote = quotes.find((q) => q.id === id);
+
+  if (!quote) {
+    res.status(404).send("Quote not found");
+    return;
+  }
+  res.json(quote);
+});
 
 /* ************************************************************************* */
 
