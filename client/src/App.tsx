@@ -1,14 +1,12 @@
 import "./App.css";
-import OpenDoorRect from "./components/OpenDoorSquare/OpenDoorRect/OpenDoorRect";
-import OpenDoorSquare from "./components/OpenDoorSquare/OpenDoorSquare";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
-function App() {
+export default function App() {
   return (
-    <article className="calendarBox">
-      <OpenDoorSquare />
-      <OpenDoorRect />
-    </article>
+    <>
+      <Header />
+      <Footer />
+    </>
   );
 }
-
-export default App;
