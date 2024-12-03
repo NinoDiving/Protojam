@@ -10,10 +10,9 @@
 }
 
 .box {
-  background-color: tomato;
+  background-color: var(--primaryColor);
   font-family: var(--numFont);
   font-size: 2.25rem;
-
   border-radius: 10px;
 }
 
