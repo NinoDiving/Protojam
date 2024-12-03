@@ -8,5 +8,4 @@ export type TimeLeft = {
 export type BoxType = {
   handleClick: () => void;
   content: string;
-  isOpen: boolean;
 };

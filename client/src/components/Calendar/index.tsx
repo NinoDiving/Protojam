@@ -24,12 +24,12 @@ export default function Calendar() {
   return (
     <main className={styles.adventCalendar}>
       {openCases.map((isOpen, index) => {
+        console.info(isOpen);
         return (
           <Box
             key={`box-${index + 1}`}
             handleClick={() => toggleBox(index)}
-            content={isOpen ? "Contenu de la case" : `${index + 1}`}
-            isOpen={isOpen}
+            content={`${index + 1}`}
           />
         );
       })}
