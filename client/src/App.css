@@ -8,6 +8,9 @@
 
 body {
   background-color: var(--bckColor);
+  background-image: url("./assets/images/bgck-snow.jpg");
+  background-size: cover;
+  background-blend-mode: overlay;
 }
 
 h1 {
