@@ -19,7 +19,7 @@ export default function Box({
   const handleBoxClick = () => {
     if (canOpen) {
       handleClick();
-      setTimeout(toggleModal, 600);
+      setTimeout(toggleModal, 0);
     } else {
       alert("Vous ne pouvez pas encore ouvrir cette case.");
     }
