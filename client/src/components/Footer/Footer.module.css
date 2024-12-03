@@ -1,0 +1,13 @@
+@import url(../../variables.css);
+
+.footer {
+  color: var(--light);
+  font-size: .75rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer a {
+  color: var(--light);
+}

@@ -25,7 +25,7 @@ export default function Countdown() {
         {seconds.toString().padStart(2, "0")}
       </span>
       <p className={styles.countdownStyle}>Secondes</p>
-      <p>avant Noël</p>
+      <p className={styles.countdownStyle}>avant Noël</p>
     </time>
   );
 }

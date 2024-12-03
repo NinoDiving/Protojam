@@ -8,14 +8,14 @@ const quote = [
     citation: "Commence par toi-même",
     morale:
       "Prenez soin de vous-même avant de prendre soin des autres.La bienveillance commence par l'amour de soi.",
-    isOpened: false,
+    isOpened: true,
   },
   {
     id: 2,
     citation:
       "Être bienveillant, c'est offrir une oreille attentive et un cœur ouvert.",
     morale: "Aujourd'hui, prend le temps d'écouter quelqu'un sans jugement.",
-    isOpened: false,
+    isOpened: true,
   },
   {
     id: 3,
