@@ -8,6 +8,12 @@
 
 body {
   background-color: var(--bckColor);
+  padding: 0 2rem;
+}
+
+h1,
+p {
+  font-family: var(--textFont);
 }
 
 h1 {
