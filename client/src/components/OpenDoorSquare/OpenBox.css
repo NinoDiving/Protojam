@@ -1,0 +1,64 @@
+.box-container {
+  perspective: 1000px;
+  justify-self: center;
+}
+
+.box {
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.face {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 20rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+.right {
+  transform: translateZ(100px);
+  transform-origin: right center;
+  transition: 1s ease-in-out;
+  background-image: url("./src/assets/images/christmasTree.jpg");
+}
+
+.left {
+  transform: translateZ(100px);
+  transform-origin: left center;
+  transition: 1.5s linear;
+  background-image: url("./src/assets/images/christmasTree.jpg");
+}
+.back {
+  background-color: rgba(0, 0, 255, 0.336);
+}
+.box.open .right {
+  transform: rotateY(90deg);
+}
+
+.box.open .left {
+  transform: rotateY(-110deg);
+}
+
+.rect.open .left {
+  transform: rotateY(-110deg);
+  transform-origin: left center;
+}
+
+.rect-container {
+  perspective: 2000px;
+}
+
+.rect {
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.rectangle {
+  width: 40rem;
+  height: 20rem;
+}
