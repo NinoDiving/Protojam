@@ -34,6 +34,7 @@ export default function Calendar() {
     <main className={styles.adventCalendar}>
       {openCases.map((isOpen, index) => {
         console.info(isOpen);
+        const canOpen = index + 1 <= today; // Autoriser si la date est atteinte
         return (
           <Box
             key={`box-${index + 1}`}
@@ -41,6 +42,7 @@ export default function Calendar() {
             toggleModal={() => toggleModal(index)}
             isModalOpen={isModalOpen[index]}
             content={`${index + 1}`}
+            canOpen={canOpen}
           />
         );
       })}

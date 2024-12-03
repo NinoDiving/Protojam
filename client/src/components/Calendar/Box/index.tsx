@@ -6,6 +6,7 @@ import type { BoxType } from "../../../types/type";
 type BoxProps = BoxType & {
   isModalOpen: boolean;
   toggleModal: () => void;
+  canOpen: boolean;
 };
 
 export default function Box({
@@ -13,10 +14,15 @@ export default function Box({
   content,
   isModalOpen,
   toggleModal,
+  canOpen,
 }: BoxProps) {
   const handleBoxClick = () => {
-    handleClick();
-    setTimeout(toggleModal, 600);
+    if (canOpen) {
+      handleClick();
+      setTimeout(toggleModal, 600);
+    } else {
+      alert("Vous ne pouvez pas encore ouvrir cette case.");
+    }
   };
 
   return (
@@ -28,23 +34,21 @@ export default function Box({
           dimmerClassName: styles.backModal,
           contentClassName: styles.contentModal,
         }}
-        renderOpenButton={() => {
-          return (
-            <button onClick={toggleModal} type="button">
-              <img
-                className={styles.modalBtn}
-                src="./src/assets/images/logoBtn.png"
-                alt="Modal button"
-              />
-            </button>
-          );
-        }}
+        renderOpenButton={() => (
+          <button onClick={toggleModal} type="button">
+            <img
+              className={styles.modalBtn}
+              src="./src/assets/images/logoBtn.png"
+              alt="Modal button"
+            />
+          </button>
+        )}
       >
         <h1>Je suis le contenu de la modal pour {content}</h1>
       </HyperModal>
       <div
         className={`${styles.boxContainer} ${
-          isModalOpen ? styles.rotateX : ""
+          isModalOpen && canOpen ? styles.rotateX : ""
         }`}
       >
         <button
