@@ -4,7 +4,11 @@ import styles from "./Header.module.css";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <h1>Wild X'mas</h1>
+      <img
+        className={styles.logo}
+        src="./src/assets/images/logo.png"
+        alt="Logo"
+      />
       <Countdown />
     </header>
   );
