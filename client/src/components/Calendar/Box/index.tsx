@@ -4,12 +4,10 @@ import type { BoxType } from "../../../types/type";
 import styles from "./Box.module.css";
 export default function Box({ handleClick, content }: BoxType) {
   const [isRotated, setIsRotated] = useState(false);
-
   const handleBoxClick = () => {
     setIsRotated((prev) => !prev);
     handleClick();
   };
-
   return (
     <div className={styles.box}>
       <HyperModal

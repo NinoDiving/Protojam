@@ -1,8 +1,7 @@
-import express from "express";
+// quotesData.ts
+import type { quotesInfo } from "../types/quotesInfo";
 
-const app = express();
-
-const quote = [
+export const quotes: quotesInfo[] = [
   {
     id: 1,
     citation: "Commence par toi-même",
@@ -177,13 +176,3 @@ const quote = [
     isOpened: false,
   },
 ];
-
-app.get("/quote", (req, res) => {
-  res.json(quote);
-});
-
-const port = 3310;
-
-app.listen(port, () => {});
-
-export default quote;
