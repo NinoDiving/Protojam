@@ -1,37 +1,38 @@
 import { useState } from "react";
+import Box from "./Box";
 import styles from "./Calendar.module.css";
 
 export default function Calendar() {
-  const [openBoxes, setOpenBoxes] = useState<boolean[]>(
+  const [openCases, setOpenCases] = useState<boolean[]>(
     new Array(25).fill(false),
   );
 
-  const toggleDoor = (index: number) => {
-    setOpenBoxes((prev) =>
-      prev.map((isOpen, i) => (i === index ? !isOpen : isOpen)),
-    );
+  const now = new Date();
+  const today = now.getDate();
+
+  const toggleBox = (caseNumber: number) => {
+    console.info(`Case cliquée : ${caseNumber + 1}`);
+    if (caseNumber + 1 > today) {
+      alert("Vous ne pouvez pas encore ouvrir cette case");
+    } else {
+      const newOpenCases = [...openCases];
+      newOpenCases[caseNumber] = !newOpenCases[caseNumber];
+      setOpenCases(newOpenCases);
+    }
   };
 
   return (
     <main className={styles.adventCalendar}>
-      {[...Array(25)].map((_, index) => (
-        <div
-          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-          key={index}
-          className={`${styles.box} ${openBoxes[index] ? styles.open : ""}`}
-        >
-          <div className={styles.boxContainer}>
-            {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-            <div
-              onClick={() => toggleDoor(index)}
-              className={styles.faceSquare}
-            >
-              {" "}
-              {index + 1}
-            </div>
-          </div>
-        </div>
-      ))}
+      {openCases.map((isOpen, index) => {
+        return (
+          <Box
+            key={`box-${index + 1}`}
+            handleClick={() => toggleBox(index)}
+            content={isOpen ? "Contenu de la case" : `${index + 1}`}
+            isOpen={isOpen}
+          />
+        );
+      })}
     </main>
   );
 }
