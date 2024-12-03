@@ -8,7 +8,7 @@
 }
 
 .faceSquare {
-  background-image: url("./src/assets/images/christmasTree.jpg");
+  background-image: url("");
   background-size: cover;
   height: 14.2rem;
   z-index: 100;
@@ -35,100 +35,125 @@
 
 .box:nth-child(1) {
   grid-area: 1 / 1 / 2 / 2;
+  background-image: url("./src/assets/images/1day.png");
 }
 
 .box:nth-child(2) {
   grid-area: 1 / 2 / 2 / 4;
+  background-image: url("./src/assets/images/2day.png");
 }
 
 .box:nth-child(3) {
   grid-area: 1 / 4 / 2 / 5;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(4) {
   grid-area: 1 / 5 / 3 / 6;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(5) {
   grid-area: 1 / 6 / 2 / 7;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(6) {
   grid-area: 1 / 7 / 2 / 9;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(7) {
   grid-area: 1 / 9 / 2 / 10;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(8) {
   grid-area: 2 / 1 / 4 / 2;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(9) {
   grid-area: 2 / 2 / 3 / 3;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(10) {
   grid-area: 2 / 3 / 3 / 5;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(11) {
   grid-area: 2 / 6 / 3 / 8;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(12) {
   grid-area: 2 / 8 / 3 / 10;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(13) {
   grid-area: 3 / 2 / 4 / 3;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(14) {
   grid-area: 3 / 3 / 4 / 4;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(15) {
   grid-area: 3 / 4 / 4 / 5;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(16) {
   grid-area: 3 / 5 / 5 / 6;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(17) {
   grid-area: 3 / 6 / 4 / 7;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(18) {
   grid-area: 3 / 7 / 5 / 8;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(19) {
   grid-area: 3 / 8 / 4 / 9;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(20) {
   grid-area: 3 / 9 / 5 / 10;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(21) {
   grid-area: 4 / 1 / 5 / 3;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(22) {
   grid-area: 4 / 3 / 5 / 4;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(23) {
   grid-area: 4 / 4 / 5 / 5;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(24) {
   grid-area: 4 / 6 / 5 / 7;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
 
 .box:nth-child(25) {
   grid-area: 4 / 8 / 5 / 9;
+  background-image: url("./src/assets/images/christmasTree.jpg");
 }
