@@ -1,0 +1,12 @@
+@import url(../../variables.css);
+
+.footer {
+  color: var(--light);
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer a {
+  color: var(--light);
+}
