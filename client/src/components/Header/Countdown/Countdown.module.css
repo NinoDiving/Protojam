@@ -2,19 +2,21 @@
 
 .countdownTime {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(2, 1fr);
   justify-items: center;
   align-items: center;
+  gap: .25rem;
 
   height: 2rem;
-  width: 10rem;
+  width: 15rem;
 
-  font-size: .5rem;
+  font-size: .75rem;
+  font-family: var(--textFont);
 }
 
 .countdownTime > span {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: var(--light);
   font-weight: bold;
 }
@@ -61,4 +63,9 @@
 
 .countdownStyle:nth-child(11) {
   grid-area: 2 / 7 / 3 / 8;
+}
+
+.countdownStyle:nth-child(12) {
+  grid-area: 1 / 8 / 3 / 9;
+  width: 5rem;
 }

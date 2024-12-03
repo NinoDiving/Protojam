@@ -11,6 +11,12 @@ body {
   background-image: url("./assets/images/bgck-snow.jpg");
   background-size: cover;
   background-blend-mode: overlay;
+  padding: 0 2rem;
+}
+
+h1,
+p {
+  font-family: var(--textFont);
 }
 
 h1 {
