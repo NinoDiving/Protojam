@@ -13,8 +13,8 @@ export default function Footer() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="100"
-            height="80"
+            width="30"
+            height="30"
             fill="currentColor"
             className="bi bi-github"
             viewBox="0 0 16 16"
