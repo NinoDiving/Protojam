@@ -14,12 +14,12 @@ type BoxProps = {
 };
 
 export default function Box({
+  caseNumber,
   handleClick,
   content,
   isModalOpen,
   toggleModal,
   data,
-  caseNumber,
 }: BoxProps) {
   const handleBoxClick = () => {
     const today = new Date().getDate();
@@ -30,7 +30,7 @@ export default function Box({
     }
 
     handleClick();
-    setTimeout(toggleModal, 0);
+    setTimeout(toggleModal, 600);
   };
 
   return (
