@@ -1,28 +1,24 @@
 import HyperModal from "react-hyper-modal";
 import styles from "./Box.module.css";
 
-import type { BoxType } from "../../../types/type";
-
-type BoxProps = BoxType & {
+type BoxProps = {
+  content: string;
   isModalOpen: boolean;
   toggleModal: () => void;
-  canOpen: boolean;
+  data: {
+    citation: string;
+    morale: string;
+  };
 };
 
 export default function Box({
-  handleClick,
   content,
   isModalOpen,
   toggleModal,
-  canOpen,
+  data,
 }: BoxProps) {
   const handleBoxClick = () => {
-    if (canOpen) {
-      handleClick();
-      setTimeout(toggleModal, 0);
-    } else {
-      alert("Vous ne pouvez pas encore ouvrir cette case.");
-    }
+    setTimeout(toggleModal, 0);
   };
 
   return (
@@ -44,11 +40,12 @@ export default function Box({
           </button>
         )}
       >
-        <h1>Je suis le contenu de la modal pour {content}</h1>
+        <p>{data.citation}</p>
+        <small>{data.morale}</small>
       </HyperModal>
       <div
         className={`${styles.boxContainer} ${
-          isModalOpen && canOpen ? styles.rotateX : ""
+          isModalOpen ? styles.rotateX : ""
         }`}
       >
         <button
