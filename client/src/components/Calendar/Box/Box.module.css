@@ -11,8 +11,7 @@
 }
 
 .modalBtn {
-  background-image: url("./src/assets/images/logoBtn.png");
-  width: 10rem;
+  padding-top: 1rem;
   cursor: pointer;
   color: red;
 }
@@ -42,7 +41,7 @@
 .boxContainer {
   border: .09rem solid white;
   position: relative;
-  bottom: 11.9rem;
+  bottom: 6.7rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,12 +61,14 @@
   padding: 10px;
   background-color: #4caf50;
   color: white;
-  font-size: 16px;
+  font-family: var(--numFont);
+  font-size: 4rem !important;
   cursor: pointer;
   width: 100%;
   height: 100%;
   border-radius: 5px;
   box-shadow: inset 1px 1px 2px 2px #00000075;
+  color: rgb(226, 186, 39);
 }
 
 .box button {
