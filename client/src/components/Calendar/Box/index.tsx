@@ -2,6 +2,8 @@ import HyperModal from "react-hyper-modal";
 import styles from "./Box.module.css";
 
 type BoxProps = {
+  caseNumber: number;
+  handleClick: () => void;
   content: string;
   isModalOpen: boolean;
   toggleModal: () => void;
@@ -12,12 +14,22 @@ type BoxProps = {
 };
 
 export default function Box({
+  handleClick,
   content,
   isModalOpen,
   toggleModal,
   data,
+  caseNumber,
 }: BoxProps) {
   const handleBoxClick = () => {
+    const today = new Date().getDate();
+
+    if (caseNumber > today) {
+      alert("Vous ne pouvez pas encore ouvrir cette case");
+      return;
+    }
+
+    handleClick();
     setTimeout(toggleModal, 0);
   };
 

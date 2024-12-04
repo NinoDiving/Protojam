@@ -32,20 +32,20 @@ export default function Calendar() {
 
   return (
     <main className={styles.adventCalendar}>
-      {quotes.map((quote, index) => {
-        return (
-          <Box
-            key={quote?.id || `box-${index + 1}`}
-            toggleModal={() => toggleModal(index)}
-            content={` ${index + 1}`}
-            isModalOpen={modals[index]}
-            data={{
-              citation: quote?.citation || "Pas de citation disponible",
-              morale: quote?.morale || "Pas de morale disponible",
-            }}
-          />
-        );
-      })}
+      {quotes.map((quote, index) => (
+        <Box
+          key={quote?.id || `box-${index}`}
+          handleClick={() => console.log(`Box ${index + 1} clicked`)}
+          content={` ${index + 1}`}
+          isModalOpen={modals[index]}
+          toggleModal={() => toggleModal(index)}
+          data={{
+            citation: quote?.citation || "Pas de citation disponible",
+            morale: quote?.morale || "Pas de morale disponible",
+          }}
+          caseNumber={index + 1}
+        />
+      ))}
     </main>
   );
 }
