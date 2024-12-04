@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import HyperModal from "react-hyper-modal";
 import styles from "./Box.module.css";
 
@@ -22,6 +23,17 @@ export default function Box({
   toggleModal,
   data,
 }: BoxProps) {
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.classList.add(styles.noScroll);
+    } else {
+      document.body.classList.remove(styles.noScroll);
+    }
+    return () => {
+      document.body.classList.remove(styles.noScroll);
+    };
+  }, [isModalOpen]);
+
   const handleBoxClick = () => {
     const today = new Date().getDate();
 
