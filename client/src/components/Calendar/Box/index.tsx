@@ -1,3 +1,4 @@
+import { useState } from "react";
 import HyperModal from "react-hyper-modal";
 import styles from "./Box.module.css";
 
@@ -22,11 +23,15 @@ export default function Box({
   toggleModal,
   data,
 }: BoxProps) {
-  const handleBoxClick = () => {
-    const today = new Date().getDate();
+  const [isBlockingModalOpen, setBlockingModalOpen] = useState(false); // Gère la modal bloquante
+  const today = new Date().getDate();
 
+  // Calcul des jours restants avant d'ouvrir la boîte
+  const daysLeft = caseNumber - today;
+
+  const handleBoxClick = () => {
     if (caseNumber > today) {
-      alert("Vous ne pouvez pas encore ouvrir cette case");
+      setBlockingModalOpen(true); // Ouvre la modal bloquante
       return;
     }
 
@@ -34,8 +39,13 @@ export default function Box({
     setTimeout(toggleModal, 0);
   };
 
+  const closeBlockingModal = () => {
+    setBlockingModalOpen(false); // Ferme la modal bloquante
+  };
+
   return (
     <div className={styles.box}>
+      {/* Modal principale */}
       <HyperModal
         isOpen={isModalOpen}
         classes={{
@@ -70,6 +80,47 @@ export default function Box({
         )}
         <small>{data.morale}</small>
       </HyperModal>
+
+      {/* Modal bloquante */}
+      <HyperModal
+        isOpen={isBlockingModalOpen}
+        requestClose={closeBlockingModal}
+        classes={{
+          wrapperClassName: styles.modal,
+          dimmerClassName: styles.backModal,
+          contentClassName: styles.contentModal,
+        }}
+      >
+        <div style={{ marginBottom: "20px" }}>
+          {/* biome-ignore lint/a11y/useIframeTitle: <explanation> */}
+          <iframe
+            src="https://gifer.com/embed/5cr"
+            width="400"
+            height="350"
+            allowFullScreen
+            style={{
+              alignSelf: "flex-start",
+              borderRadius: "10px",
+              border: "0px",
+            }}
+          >
+            Gif Not today
+          </iframe>
+        </div>
+        <p>
+          {daysLeft === 1
+            ? "Revenez demain pour l'ouvrir."
+            : `Revenez dans ${daysLeft} jours pour l'ouvrir.`}
+        </p>
+        <button
+          type="button"
+          onClick={closeBlockingModal}
+          className={styles.modalCloseBtn}
+        >
+          Fermer
+        </button>
+      </HyperModal>
+
       <div
         className={`${styles.boxContainer} ${
           isModalOpen ? styles.rotateX : ""

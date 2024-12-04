@@ -29,7 +29,6 @@
   height: 100%;
   opacity: 0;
   animation: main-loadup 1s forwards linear, main-loadup-bg 10s forwards linear;
-  animation-delay: 7s, 8s;
 }
 
 @keyframes main-loadup {
