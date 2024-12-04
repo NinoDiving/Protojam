@@ -20,8 +20,12 @@ export default function Box({
   data,
 }: BoxProps) {
   const handleBoxClick = () => {
-    handleClick();
-    setTimeout(toggleModal, 600);
+    if (canOpen) {
+      handleClick();
+      setTimeout(toggleModal, 600);
+    } else {
+      alert("Vous ne pouvez pas encore ouvrir cette case.");
+    }
   };
 
   return (
@@ -33,24 +37,22 @@ export default function Box({
           dimmerClassName: styles.backModal,
           contentClassName: styles.contentModal,
         }}
-        renderOpenButton={() => {
-          return (
-            <button onClick={toggleModal} type="button">
-              <img
-                className={styles.modalBtn}
-                src="./src/assets/images/logoBtn.png"
-                alt="Modal button"
-              />
-            </button>
-          );
-        }}
+        renderOpenButton={() => (
+          <button onClick={toggleModal} type="button">
+            <img
+              className={styles.modalBtn}
+              src="./src/assets/images/logoBtn.png"
+              alt="Modal button"
+            />
+          </button>
+        )}
       >
         <p>{data.citation}</p>
         <small>{data.morale}</small>
       </HyperModal>
       <div
         className={`${styles.boxContainer} ${
-          isModalOpen ? styles.rotateX : ""
+          isModalOpen && canOpen ? styles.rotateX : ""
         }`}
       >
         <button
