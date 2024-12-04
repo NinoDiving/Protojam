@@ -8,6 +8,7 @@ type BoxProps = {
   isModalOpen: boolean;
   toggleModal: () => void;
   data: {
+    img?: string;
     citation: string;
     morale: string;
   };
@@ -62,7 +63,11 @@ export default function Box({
           </button>
         )}
       >
-        <p>{data.citation}</p>
+        {data.img ? (
+          <img src={data.img} alt="" className={styles.surprise} />
+        ) : (
+          <p>{data.citation}</p>
+        )}
         <small>{data.morale}</small>
       </HyperModal>
       <div

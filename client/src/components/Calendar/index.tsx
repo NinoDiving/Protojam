@@ -42,6 +42,7 @@ export default function Calendar() {
           data={{
             citation: quote?.citation || "Pas de citation disponible",
             morale: quote?.morale || "Pas de morale disponible",
+            img: index + 1 === 25 ? "/marwanne.gif" : undefined,
           }}
           caseNumber={index + 1}
         />

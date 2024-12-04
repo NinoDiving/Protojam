@@ -10,6 +10,10 @@
   box-shadow: inset 1px 1px 14px 6px #00000075;
 }
 
+.surprise {
+  height: 15rem;
+}
+
 .modalBtn {
   padding-top: 1rem;
   cursor: pointer;
@@ -70,8 +74,8 @@
 .box button {
   border: none;
   background-color: transparent;
-  font-size: 3rem;
   text-align: center;
+  font-size: 2rem;
 }
 
 .box:nth-child(1) {
