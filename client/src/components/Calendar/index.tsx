@@ -19,7 +19,6 @@ export default function Calendar() {
             .catch(() => null),
         ),
       );
-      console.info("Citations récupérées :", fetchedQuotes);
       setQuotes(fetchedQuotes);
     };
     fetchQuotes();

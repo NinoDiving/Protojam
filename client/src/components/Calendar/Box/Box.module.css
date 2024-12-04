@@ -7,10 +7,11 @@
   font-size: 2.25rem;
   border-radius: 10px;
   justify-items: center;
+  box-shadow: inset 1px 1px 14px 6px #00000075;
 }
 
 .modalBtn {
-  width: 2.5rem;
+  padding-top: 1rem;
   cursor: pointer;
   color: red;
 }
@@ -40,7 +41,7 @@
 .boxContainer {
   border: .09rem solid white;
   position: relative;
-  bottom: 3.5rem;
+  bottom: 6.7rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,13 +58,17 @@
 }
 
 .boxContent {
-  color: rgb(226, 186, 39);
-  font-size: 4rem !important;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
   font-family: var(--numFont);
+  font-size: 4rem !important;
   cursor: pointer;
   width: 100%;
   height: 100%;
   border-radius: 5px;
+  box-shadow: inset 1px 1px 2px 2px #00000075;
+  color: rgb(226, 186, 39);
 }
 
 .box button {
