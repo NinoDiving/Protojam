@@ -3,6 +3,5 @@
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(9, 1fr);
   gap: 0.5rem;
-  height: 85vh;
-  padding: 2rem 0;
+  height: 90vh;
 }

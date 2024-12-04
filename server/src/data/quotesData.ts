@@ -175,4 +175,11 @@ export const quotes: quotesInfo[] = [
       "Aujourd'hui, offre un cadeau, même si c'est une attention toute simple, à quelqu'un qui en a besoin.",
     isOpened: false,
   },
+  {
+    id: 25,
+    img: "/marwanne.gif",
+    morale: "Joyeux Noël",
+    isOpened: false,
+    citation: "",
+  },
 ];
