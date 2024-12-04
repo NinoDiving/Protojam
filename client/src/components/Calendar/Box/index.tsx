@@ -95,8 +95,8 @@ export default function Box({
           {/* biome-ignore lint/a11y/useIframeTitle: <explanation> */}
           <iframe
             src="https://gifer.com/embed/5cr"
-            width="400"
-            height="350"
+            width="300"
+            height="200"
             allowFullScreen
             style={{
               alignSelf: "flex-start",
