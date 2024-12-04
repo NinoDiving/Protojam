@@ -68,7 +68,10 @@
   height: 100%;
   border-radius: 5px;
   box-shadow: inset 1px 1px 2px 2px #00000075;
+  -webkit-text-stroke: 1px var(--primaryColor);
   color: rgb(226, 186, 39);
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0
+    #000, 1px 1px 0 #000;
 }
 
 .box button {
