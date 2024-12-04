@@ -1,11 +1,15 @@
 import HyperModal from "react-hyper-modal";
 import styles from "./Box.module.css";
 
-import type { BoxType } from "../../../types/type";
-
-type BoxProps = BoxType & {
+type BoxProps = {
+  handleClick: () => void;
+  content: string;
   isModalOpen: boolean;
   toggleModal: () => void;
+  data: {
+    citation: string;
+    morale: string;
+  };
 };
 
 export default function Box({
@@ -13,6 +17,7 @@ export default function Box({
   content,
   isModalOpen,
   toggleModal,
+  data,
 }: BoxProps) {
   const handleBoxClick = () => {
     handleClick();
@@ -40,7 +45,8 @@ export default function Box({
           );
         }}
       >
-        <h1>Je suis le contenu de la modal pour {content}</h1>
+        <p>{data.citation}</p>
+        <small>{data.morale}</small>
       </HyperModal>
       <div
         className={`${styles.boxContainer} ${

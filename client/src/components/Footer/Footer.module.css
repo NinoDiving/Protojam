@@ -2,8 +2,7 @@
 
 .footer {
   color: var(--light);
-  font-size: .75rem;
-
+  font-size: .8rem;
   display: flex;
   justify-content: space-between;
 }
