@@ -1,51 +1,49 @@
-import { useState } from "react";
-import Box from "./Box";
 import styles from "./Calendar.module.css";
+import Box from "./Box";
+import { fetchQuoteById } from "../../api/fetchQuotes";
+import type { quotesInfo } from "../../api/quotesInfo";
+import { useEffect, useState } from "react";
 
 export default function Calendar() {
-  const [openCases, setOpenCases] = useState<boolean[]>(
-    new Array(25).fill(false),
-  );
-  const [isModalOpen, setIsModalOpen] = useState<boolean[]>(
-    new Array(25).fill(false),
-  );
+  const [quotes, setQuotes] = useState<(quotesInfo & { id: number } | null)[]>(Array(25).fill(null));
+  const [modals, setModals] = useState<boolean[]>(new Array(25).fill(false));
 
-  const now = new Date();
-  const today = now.getDate();
+  useEffect(() => {
+    const fetchQuotes = async () => {
+      const fetchedQuotes = await Promise.all(
+        Array.from({ length: 25 }, (_, index) =>
+          fetchQuoteById(index + 1)
+            .then((quote) => (quote ? { ...quote, id: index + 1 } : null))
+            .catch(() => null)
+        )
+      );
+      console.log("Citations récupérées :", fetchedQuotes);
+      setQuotes(fetchedQuotes);
+    };
+    fetchQuotes();
+  }, []);
 
-  const toggleBox = (caseNumber: number) => {
-    console.info(`Case cliquée : ${caseNumber + 1}`);
-    if (caseNumber + 1 > today) {
-      alert("Vous ne pouvez pas encore ouvrir cette case");
-    } else {
-      const newOpenCases = [...openCases];
-      newOpenCases[caseNumber] = !newOpenCases[caseNumber];
-      setOpenCases(newOpenCases);
-    }
-  };
-
-  const toggleModal = (caseNumber: number) => {
-    const newModalStates = [...isModalOpen];
-    newModalStates[caseNumber] = !newModalStates[caseNumber];
-    setIsModalOpen(newModalStates);
+  const toggleModal = (index: number) => {
+    const newModals = [...modals];
+    newModals[index] = !newModals[index];
+    setModals(newModals);
   };
 
   return (
     <main className={styles.adventCalendar}>
-      {openCases.map((isOpen, index) => {
-        console.info(isOpen);
-        const canOpen = index + 1 <= today; // Autoriser si la date est atteinte
-        return (
-          <Box
-            key={`box-${index + 1}`}
-            handleClick={() => toggleBox(index)}
-            toggleModal={() => toggleModal(index)}
-            isModalOpen={isModalOpen[index]}
-            content={`${index + 1}`}
-            canOpen={canOpen}
-          />
-        );
-      })}
+      {quotes.map((quote, index) => (
+        <Box
+          key={quote?.id || `box-${index}`}
+          handleClick={() => console.log(`Box ${index + 1} clicked`)}
+          content={` ${index + 1}`}
+          isModalOpen={modals[index]}
+          toggleModal={() => toggleModal(index)}
+          data={{
+            citation: quote?.citation || "Pas de citation disponible",
+            morale: quote?.morale || "Pas de morale disponible",
+          }}
+        />
+      ))}
     </main>
   );
 }
