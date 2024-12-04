@@ -1,11 +1,13 @@
-import styles from "./Calendar.module.css";
-import Box from "./Box";
+import { useEffect, useState } from "react";
 import { fetchQuoteById } from "../../api/fetchQuotes";
 import type { quotesInfo } from "../../api/quotesInfo";
-import { useEffect, useState } from "react";
+import Box from "./Box";
+import styles from "./Calendar.module.css";
 
 export default function Calendar() {
-  const [quotes, setQuotes] = useState<(quotesInfo & { id: number } | null)[]>(Array(25).fill(null));
+  const [quotes, setQuotes] = useState<
+    ((quotesInfo & { id: number }) | null)[]
+  >(Array(25).fill(null));
   const [modals, setModals] = useState<boolean[]>(new Array(25).fill(false));
 
   useEffect(() => {
@@ -14,10 +16,10 @@ export default function Calendar() {
         Array.from({ length: 25 }, (_, index) =>
           fetchQuoteById(index + 1)
             .then((quote) => (quote ? { ...quote, id: index + 1 } : null))
-            .catch(() => null)
-        )
+            .catch(() => null),
+        ),
       );
-      console.log("Citations récupérées :", fetchedQuotes);
+      console.info("Citations récupérées :", fetchedQuotes);
       setQuotes(fetchedQuotes);
     };
     fetchQuotes();
@@ -42,6 +44,7 @@ export default function Calendar() {
             citation: quote?.citation || "Pas de citation disponible",
             morale: quote?.morale || "Pas de morale disponible",
           }}
+          caseNumber={index + 1}
         />
       ))}
     </main>

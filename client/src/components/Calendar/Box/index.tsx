@@ -2,6 +2,7 @@ import HyperModal from "react-hyper-modal";
 import styles from "./Box.module.css";
 
 type BoxProps = {
+  caseNumber: number;
   handleClick: () => void;
   content: string;
   isModalOpen: boolean;
@@ -13,6 +14,7 @@ type BoxProps = {
 };
 
 export default function Box({
+  caseNumber,
   handleClick,
   content,
   isModalOpen,
@@ -20,12 +22,15 @@ export default function Box({
   data,
 }: BoxProps) {
   const handleBoxClick = () => {
-    if (canOpen) {
-      handleClick();
-      setTimeout(toggleModal, 600);
-    } else {
-      alert("Vous ne pouvez pas encore ouvrir cette case.");
+    const today = new Date().getDate();
+
+    if (caseNumber > today) {
+      alert("Vous ne pouvez pas encore ouvrir cette case");
+      return;
     }
+
+    handleClick();
+    setTimeout(toggleModal, 600);
   };
 
   return (
@@ -52,7 +57,7 @@ export default function Box({
       </HyperModal>
       <div
         className={`${styles.boxContainer} ${
-          isModalOpen && canOpen ? styles.rotateX : ""
+          isModalOpen ? styles.rotateX : ""
         }`}
       >
         <button
