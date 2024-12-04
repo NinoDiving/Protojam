@@ -112,13 +112,6 @@ export default function Box({
             ? "Revenez demain pour l'ouvrir."
             : `Revenez dans ${daysLeft} jours pour l'ouvrir.`}
         </p>
-        <button
-          type="button"
-          onClick={closeBlockingModal}
-          className={styles.modalCloseBtn}
-        >
-          Fermer
-        </button>
       </HyperModal>
 
       <div
