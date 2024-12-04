@@ -3,4 +3,5 @@ export interface quotesInfo {
   citation: string;
   morale: string;
   isOpened: boolean;
+  img?: string;
 }
