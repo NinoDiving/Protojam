@@ -4,15 +4,11 @@
   color: var(--light);
   font-size: .8rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding-top: 3rem;
 }
 
 .footer a {
   color: var(--light);
-}
-
-.footer p {
-  font-size: 2rem;
 }
