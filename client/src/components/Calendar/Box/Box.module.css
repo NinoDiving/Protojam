@@ -22,10 +22,7 @@
 
 .modal {
   z-index: 9999;
-}
-
-.backModal {
-  background-color: rgba(0, 0, 0, 0.8);
+  transition: all 0.3s linear !important;
 }
 
 .contentModal {
@@ -38,8 +35,11 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 30rem;
+  gap: 1rem;
   text-align: center;
   color: rgb(226, 186, 39);
+  overflow-y: hidden;
+  scrollbar-width: none;
 }
 
 .boxContainer {
